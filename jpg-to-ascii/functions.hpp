@@ -11,8 +11,14 @@ using namespace cimg_library;
 // draw_text() and delete ascii[] delete RGB[] at the same time
 // save that new img file
 
+/// <summary>
+/// Converts Image to Grayscale Image
+/// </summary>
+/// <param name="src">Image to be converted</param>
+/// <returns>Grayscale Image</returns>
 const CImg<unsigned char> img_to_grayscale(CImg<unsigned char>& src);
-
-
+const CImg<unsigned char> res_drop(CImg<unsigned char>& src);
+const int get_avg(CImg<unsigned char>& src, const int& x,const int& y,const int& s);
+void setChunk(CImg<unsigned char>& src, const int& x, const int& y, const int& s, const int& val);
 
 #endif
