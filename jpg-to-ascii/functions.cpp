@@ -49,5 +49,9 @@ const int get_avg(CImg<unsigned char>& src, const int& x, const int& y, const in
 
 
 void setChunk(CImg<unsigned char>& src, const int& x, const int& y, const int& s, const int& val) {
-
+	for (int w = 0; w < 7; ++w) {
+		for (int h = 0; h < 7; ++h) {
+			src(w + x, h + y, s) = val;
+		}
+	}
 }
