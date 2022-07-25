@@ -11,7 +11,7 @@ using namespace cimg_library;
 // draw_text() and delete ascii[] delete RGB[] at the same time
 // save that new img file
 
-const CImg<unsigned char>& img_to_greyscale(char* input);
+const CImg<unsigned char> img_to_grayscale(CImg<unsigned char>& src);
 
 
 
