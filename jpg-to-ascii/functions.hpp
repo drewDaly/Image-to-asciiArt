@@ -1,7 +1,12 @@
 #ifndef FUNCTIONS_HPP
+
 #define FUNCTIONS_HPP
-#include <string>;
-#include <CImg.h>;
+
+
+#include <string>
+
+#include <CImg.h>
+
 using namespace cimg_library;
 
 // create the greyscale img

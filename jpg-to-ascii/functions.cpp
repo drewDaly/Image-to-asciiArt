@@ -62,8 +62,8 @@ const char ascii_mapper(const int& value) {
 		'O','0','Q','L','C','J','U','Y','X','z','c','v','u','n',
 		'x','r','j','f','t','/',char(92), '|', '(',')','1',
 		'{','}','[',']','?','-','_','+','~','<','>','i','!','l',
-		'I',';',':',',','"','^','`',char(39),'.' };
-	float coeff = 2.7128;
+		'I',';',':',',','"','^','`',char(39),'.'};
+	float coeff = 3.75;
 	int vl = (int)value / coeff;
 	return scale[vl];
-}
+} 

@@ -130,5 +130,11 @@ namespace Tests
 			setChunk(image, 0, 0, 1, 47);
 			Assert::AreEqual(int(image(0, 0, 1)), 47);
 		}
+		TEST_METHOD(ASCII_MAP) {
+			char c = ascii_mapper(255);
+			Assert::AreEqual(c, '.');
+			char h = ascii_mapper(0);
+			Assert::AreEqual(h, '$');
+		}
 	};
 }
