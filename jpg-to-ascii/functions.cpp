@@ -23,7 +23,7 @@ const CImg<unsigned char> res_drop(CImg<unsigned char>& src) {
 		for (int h = 0; h < img.width() - 7; h += 7) {
 			for (int s = 0; s < img.spectrum(); ++s) {
 				try {
-					int avg = get_avg(src ,w, h, s);
+					int avg = get_avg(src, w, h, s);
 					setChunk(img, w, h, s, avg);
 				}
 				catch (...) {
@@ -54,4 +54,16 @@ void setChunk(CImg<unsigned char>& src, const int& x, const int& y, const int& s
 			src(w + x, h + y, s) = val;
 		}
 	}
+}
+
+const char ascii_mapper(const int& value) {
+	char scale[] = { '$', '@', 'B', '%', '8', '&', 'W', 'M',
+		'#','*', 'o', 'a', 'h', 'k','b','d','p','q','w','m','Z',
+		'O','0','Q','L','C','J','U','Y','X','z','c','v','u','n',
+		'x','r','j','f','t','/',char(92), '|', '(',')','1',
+		'{','}','[',']','?','-','_','+','~','<','>','i','!','l',
+		'I',';',':',',','"','^','`',char(39),'.' };
+	float coeff = 2.7128;
+	int vl = (int)value / coeff;
+	return scale[vl];
 }

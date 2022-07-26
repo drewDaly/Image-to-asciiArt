@@ -41,5 +41,11 @@ const int get_avg(CImg<unsigned char>& src, const int& x,const int& y,const int&
 /// <param name="s">Initial RGB channel</param>
 /// <param name="val">Value to set pixel to</param>
 void setChunk(CImg<unsigned char>& src, const int& x, const int& y, const int& s, const int& val);
+/// <summary>
+/// Pixel's value in grey scale is mapped to ASCII character based on article by Paul Bourke.
+/// </summary>
+/// <param name="value">Pixel value on grayscale</param>
+/// <returns>ASCII character within ranges 32-126</returns>
+const char ascii_mapper(const int& value);
 
 #endif
