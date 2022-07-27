@@ -27,7 +27,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Pictures\guitar man.jpg">
+    <Image Include="..\..\..\..\Pictures\guitarman.jpg">
       <Filter>Source Files\images</Filter>
     </Image>
   </ItemGroup>

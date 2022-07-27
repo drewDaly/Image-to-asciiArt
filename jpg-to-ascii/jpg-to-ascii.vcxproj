@@ -134,7 +134,7 @@
     <ClInclude Include="functions.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Pictures\guitar man.jpg" />
+    <Image Include="..\..\..\..\Pictures\guitarman.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

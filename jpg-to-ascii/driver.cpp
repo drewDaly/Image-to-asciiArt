@@ -1,12 +1,11 @@
 #include <iostream>
-#include<CImg.h>
 #include "functions.hpp"
-using namespace cimg_library;
+#define cimg_use_magick
+
 
 int main()
 {
-	CImg<unsigned char> image("./images/guitar man.jpg");
-	image.display();
-    return 0;
+	
+	return 0;
 }
 

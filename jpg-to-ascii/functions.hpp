@@ -5,9 +5,9 @@
 
 #include <string>
 
-#include <CImg.h>
+#include <SFML/Graphics.hpp>
 
-using namespace cimg_library;
+using namespace sf;
 
 // create the greyscale img
 // drop the resolution on the greyscale by grabbing 7x7 blocks and averaging them
@@ -21,13 +21,13 @@ using namespace cimg_library;
 /// </summary>
 /// <param name="src">Source Image</param>
 /// <returns>New Grayscale Image</returns>
-const CImg<unsigned char> img_to_grayscale(CImg<unsigned char>& src);
+const Image img_to_grayscale(Image& src);
 /// <summary>
 /// Drops the resolution on the Image by setting each pixel in a 7x7 chunk to the average.
 /// </summary>
 /// <param name="src">Source Image</param>
 /// <returns>New Image with lowered resolution</returns>
-const CImg<unsigned char> res_drop(CImg<unsigned char>& src);
+//const Image res_drop(Image& src);
 /// <summary>
 /// Takes the average of a 7x7 chunk of pixels.
 /// </summary>
@@ -36,7 +36,7 @@ const CImg<unsigned char> res_drop(CImg<unsigned char>& src);
 /// <param name="y">Initial y position</param>
 /// <param name="s">Initial RGB channel</param>
 /// <returns>Average pixel value</returns>
-const int get_avg(CImg<unsigned char>& src, const int& x,const int& y,const int& s);
+const int get_avg(Image& src, const int& x,const int& y,const int& s);
 /// <summary>
 /// Sets 7x7 chunk to specified value.
 /// </summary>
@@ -45,7 +45,7 @@ const int get_avg(CImg<unsigned char>& src, const int& x,const int& y,const int&
 /// <param name="y">Initial y position</param>
 /// <param name="s">Initial RGB channel</param>
 /// <param name="val">Value to set pixel to</param>
-void setChunk(CImg<unsigned char>& src, const int& x, const int& y, const int& s, const int& val);
+void setChunk(Image& src, const int& x, const int& y, const int& s, const int& val);
 /// <summary>
 /// Pixel's value in grey scale is mapped to ASCII character based on article by Paul Bourke.
 /// </summary>
