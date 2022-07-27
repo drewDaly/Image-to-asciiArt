@@ -21,13 +21,13 @@ using namespace sf;
 /// </summary>
 /// <param name="src">Source Image</param>
 /// <returns>New Grayscale Image</returns>
-const Image img_to_grayscale(Image& src);
+void img_to_grayscale(Image& src);
 /// <summary>
 /// Drops the resolution on the Image by setting each pixel in a 7x7 chunk to the average.
 /// </summary>
 /// <param name="src">Source Image</param>
 /// <returns>New Image with lowered resolution</returns>
-//const Image res_drop(Image& src);
+void res_drop(Image& src);
 /// <summary>
 /// Takes the average of a 7x7 chunk of pixels.
 /// </summary>
@@ -43,14 +43,19 @@ const int get_avg(Image& src, const int& x,const int& y,const int& s);
 /// <param name="src">Source Image</param>
 /// <param name="x">Initial x position</param>
 /// <param name="y">Initial y position</param>
-/// <param name="s">Initial RGB channel</param>
 /// <param name="val">Value to set pixel to</param>
-void setChunk(Image& src, const int& x, const int& y, const int& s, const int& val);
+void setChunk(Image& src, const int& x, const int& y, Color& color);
 /// <summary>
 /// Pixel's value in grey scale is mapped to ASCII character based on article by Paul Bourke.
 /// </summary>
 /// <param name="value">Pixel value on grayscale</param>
 /// <returns>ASCII character within ranges 32-126</returns>
 const char ascii_mapper(const int& value);
+/// <summary>
+/// Creates ascii art string for passed image.
+/// </summary>
+/// <param name="src">Source Image</param>
+/// <returns>Ascii art string</returns>
+const std::string create_ascii(Image& src);
 
 #endif
