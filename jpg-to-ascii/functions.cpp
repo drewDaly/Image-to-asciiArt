@@ -1,5 +1,8 @@
 #include "functions.hpp";
 #include <SFML/Graphics.hpp>
+#include <vector>
+#include <fstream>
+
 using namespace sf;
 
 void img_to_grayscale(Image& src) {
@@ -14,18 +17,14 @@ void img_to_grayscale(Image& src) {
 	}
 }
 
-
-
-const int get_avg(Image& src, const int& x, const int& y) {
-	int avg;
-	if (src.getSize().x < 7 || src.getSize().y < 7) throw "image too small";
-	for (int w = 0; w < 7; ++w) {
-		for (int h = 0; h < 7; ++h) {
-			if (w == 0 && h == 0) avg = src.getPixel(x + w, y + h).r;
-			else avg += src.getPixel(x + w, y + h).r;
+const int get_avg(Image& src, const int& x, const int& y, std::vector<int> factors) {
+	int avg = 0;
+	for (int w = 0; w < factors.at(0); ++w) {
+		for (int h = 0; h <factors.at(1); ++h) {
+			avg += src.getPixel(x + w, y + h).r;
 		}
 	}
-	return (int) avg / 49;
+	return (int) avg / (factors.at(0) * factors.at(1));
 }
 
 const char ascii_mapper(const int& value) {
@@ -40,14 +39,32 @@ const char ascii_mapper(const int& value) {
 	return scale[vl];
 }
 const std::string create_ascii(Image& src) {
+	std::vector<int> factors;
+	if (src.getSize().x < 500 || src.getSize().y < 400) {
+		factors.push_back(1), factors.push_back(1);
+	}
+	else {
+		factors.push_back((int)src.getSize().x / 500),
+			factors.push_back((int)src.getSize().y / 400);
+	}
 	std::string ascii_art = "";
 	img_to_grayscale(src);
-	for (int h = 0; h < src.getSize().y; h += 7) {
-		for (int w = 0; w < src.getSize().x; w += 7) {
-			int chunkAvg = get_avg(src, w, h);
+	for (int h = 0; h < src.getSize().y - factors.at(1); h += factors.at(1)) {
+		for (int w = 0; w < src.getSize().x - factors.at(0); w += factors.at(0)) {
+			int chunkAvg = get_avg(src, w, h, factors);
 			ascii_art += ascii_mapper(chunkAvg);
 		}
 		ascii_art += '\n';
 	}
 	return ascii_art;
+}
+
+void ascii_txtFile(Image& src, const std::string& path) {
+	std::string asciiArt = create_ascii(src);
+	std::ofstream ofs;
+	ofs.open(path);
+	if (ofs.is_open()) {
+		ofs << asciiArt;
+		ofs.close();
+	}
 }
