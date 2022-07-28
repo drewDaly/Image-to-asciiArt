@@ -9,9 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Source Files\images">
-      <UniqueIdentifier>{0e387946-91c0-4b24-86b5-f53fc1d4ffb3}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cpp">
@@ -25,10 +22,5 @@
     <ClInclude Include="functions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\..\Pictures\guitarman.jpg">
-      <Filter>Source Files\images</Filter>
-    </Image>
   </ItemGroup>
 </Project>
