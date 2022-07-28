@@ -24,14 +24,6 @@ namespace Tests
 			char h = ascii_mapper(0);
 			Assert::AreEqual(h, '$');
 		};
-		/*TEST_METHOD(SET_CHUNK) {
-			Image img;
-			img.create(49, 49, Color(255, 0, 255));
-			setChunk(img, 0, 0, Color(0, 0, 0));
-			Assert::AreEqual(0, (int)img.getPixel(0, 0).r);
-			Assert::AreEqual(0, (int)img.getPixel(1, 1).r);
-			Assert::AreEqual(255, (int)img.getPixel(8, 8).r);
-		};*/
 		TEST_METHOD(IMG_TO_GRAYSCALE) {
 			Image img;
 			img.create(49, 49, Color(255, 0, 255));
